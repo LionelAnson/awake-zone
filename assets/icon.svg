@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <!-- Transparent icon: outer ring is Wake Zone (16h awake / 8h sleep), inner ring is ordinary time. -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Sleep: 120 degrees = 8/24. -->
+    <circle cx="256" cy="256" r="205" stroke="#75879a" stroke-width="28" opacity=".34"/>
+    <path d="M256 51a205 205 0 0 1 177.535 307.5" stroke="#63758b" stroke-width="28" opacity=".82"/>
+    <!-- Awake: 240 degrees = 16/24. -->
+    <path d="M433.535 358.5A205 205 0 1 1 256 51" stroke="#ffc857" stroke-width="28"/>
+    <circle cx="78.465" cy="358.5" r="15" fill="#ffc857" stroke="none"/>
+    <circle cx="256" cy="51" r="15" fill="#63758b" stroke="none"/>
+
+    <!-- Ordinary clock. -->
+    <circle cx="256" cy="256" r="127" stroke="#dce7ef" stroke-width="16" opacity=".94"/>
+    <path d="M256 129v18M383 256h-18M256 383v-18M129 256h18" stroke="#dce7ef" stroke-width="10" opacity=".92"/>
+    <path d="M256 256V190M256 256l54 31" stroke="#dce7ef" stroke-width="15"/>
+    <circle cx="256" cy="256" r="14" fill="#ffc857" stroke="none"/>
+  </g>
+</svg>

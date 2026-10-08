@@ -1,0 +1,3 @@
+[build]
+# A small desktop app should also build on machines with limited free memory.
+jobs = 1

@@ -1,0 +1,27 @@
+﻿{
+    "compiler":  "C:\\Program Files (x86)\\Microsoft Visual Studio\\18\\BuildTools\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\cl.exe",
+    "sdk":  "10.0.26100.0",
+    "metadata":  {
+                     "Algorithm":  "SHA256",
+                     "Hash":  "2CC68B1B1B19FE2A921BAEDAFF99D2A78D5351C507716FE20B61AD5CB808343E",
+                     "Path":  "C:\\WINDOWS\\System32\\WinMetadata\\Windows.Graphics.winmd"
+                 },
+    "runId":  "2026-09-30T07-03-53-967Z-capability",
+    "arguments":  [
+                      "/nologo",
+                      "/std:c++20",
+                      "/EHsc",
+                      "/MD",
+                      "/utf-8",
+                      "/IF:\\Desktop\\codex工作环境\\个人时钟\\output\\wgc-research\\2026-09-30T07-03-53-967Z-capability/generated",
+                      "F:\\Desktop\\codex工作环境\\个人时钟\\diagnostics\\wgc-capability/probe.cpp",
+                      "/FoF:\\Desktop\\codex工作环境\\个人时钟\\output\\wgc-research\\2026-09-30T07-03-53-967Z-capability/probe.obj",
+                      "/FeF:\\Desktop\\codex工作环境\\个人时钟\\output\\wgc-research\\2026-09-30T07-03-53-967Z-capability/wgc-capability.exe",
+                      "/link",
+                      "windowsapp.lib",
+                      "d3d11.lib",
+                      "dxgi.lib",
+                      "user32.lib"
+                  ],
+    "jobs":  1
+}

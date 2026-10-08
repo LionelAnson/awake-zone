@@ -1,0 +1,121 @@
+* { box-sizing: border-box; }
+:root {
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: #000; background: #f7f7f8; font-synthesis: none;
+  --muted: rgb(0 0 0 / .76); --line: rgb(0 0 0 / .14); --accent: #111; --track: rgb(0 0 0 / .15);
+  --input: #fff; --button: #eee; --glass-edge: rgb(255 255 255 / .3);
+  color-scheme: light;
+}
+:root[data-page="widget"][data-ink="white"] {
+  color: #fff;
+  --muted: rgb(255 255 255 / .8); --line: rgb(255 255 255 / .18); --accent: #fff; --track: rgb(255 255 255 / .19);
+  --input: #303136; --button: #35363b;
+}
+body { margin: 0; min-width: 300px; }
+#app { padding: 12px 16px 11px; min-height: 224px; }
+header { display: flex; align-items: center; justify-content: space-between; gap: 4px; user-select: none; height: 22px; cursor: move; }
+.brand { display: flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 650; white-space: nowrap; }
+.brand-mark { font-size: 20px; line-height: 1; color: var(--accent); }
+.english { font-size: 9px; font-weight: 400; color: var(--muted); }
+.tools { display: flex; gap: 1px; }
+#return-desktop[hidden] { display: none; }
+#return-desktop { opacity: 0; pointer-events: none; }
+#app:hover #return-desktop, #return-desktop:focus-visible { opacity: 1; pointer-events: auto; }
+button, select, input { font: inherit; }
+button { border: 1px solid var(--line); background: var(--button); color: inherit; border-radius: 6px; cursor: pointer; padding: 6px 12px; }
+button:hover { filter: brightness(.95); }
+button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+button:disabled { opacity: .4; cursor: default; }
+.icon-button { display: grid; place-items: center; width: 23px; height: 24px; padding: 3px; border: 0; background: transparent; }
+.icon-button svg { height: 15px; width: 15px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.icon-button[aria-pressed="true"], .icon-button[aria-expanded="true"] { background: var(--track); color: var(--accent); }
+.clock-pair { display: grid; grid-template-columns: 1fr 1fr; margin-top: 14px; }
+.clock-pair > div + div { padding-left: 19px; border-left: 1px solid var(--line); }
+.clock-label { font-size: 11px; color: var(--muted); margin-bottom: 1px; }
+.clock-label span { font-size: 9px; margin-left: 3px; }
+time { display: block; font-size: 35px; font-weight: 500; line-height: 1.22; font-variant-numeric: tabular-nums; letter-spacing: -1.5px; }
+.personal time { color: var(--accent); }
+.progress-section { margin-top: 12px; }
+.progress-heading { display: flex; justify-content: space-between; font-size: 10px; margin-bottom: 6px; color: var(--muted); }
+.progress-heading strong { color: var(--accent); font-size: 11px; font-variant-numeric: tabular-nums; font-weight: 600; }
+.progress { height: 6px; position: relative; overflow: hidden; background: var(--track); border-radius: 3px; }
+#progress-fill { height: 100%; width: 0%; background: var(--accent); }
+.progress i { position: absolute; top: 0; width: 1px; height: 6px; background: var(--input); opacity: .8; }
+.ticks { position: relative; height: 18px; color: var(--muted); font-size: 8px; }
+.ticks span { position: absolute; top: 3px; transform: translateX(-50%); }
+.remaining { font-size: 11px; line-height: 18px; min-height: 18px; }
+footer { display: flex; justify-content: space-between; gap: 4px; margin-top: 5px; font-size: 9px; color: var(--muted); line-height: 14px; }
+#schedule-label { white-space: nowrap; }
+#day-note { text-align: right; }
+[hidden] { display: none !important; }
+#settings-panel { border-top: 1px solid var(--line); margin-top: 14px; padding-top: 12px; }
+.settings-title { display: flex; align-items: center; justify-content: space-between; margin-bottom: 13px; }
+h1 { font-size: 13px; font-weight: 600; margin: 0; }
+.settings-title span { font-size: 10px; color: var(--muted); }
+.time-inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+label { font-size: 11px; }
+input, select { border: 1px solid var(--line); border-radius: 6px; padding: 6px 8px; color: inherit; background: var(--input); min-width: 0; }
+input { display: block; width: 100%; margin-top: 6px; font-variant-numeric: tabular-nums; }
+.theme-row { display: flex; align-items: center; justify-content: space-between; margin-top: 12px; }
+select { width: 132px; font-size: 11px; }
+.help { font-size: 10px; color: var(--muted); line-height: 1.7; margin: 12px 0; }
+.form-actions { display: flex; justify-content: flex-end; gap: 8px; font-size: 11px; }
+.primary { background: var(--accent); color: var(--input); border-color: var(--accent); }
+#error { font-size: 11px; line-height: 1.6; color: #b74532; padding: 7px; background: var(--input); border: 1px solid currentColor; border-radius: 5px; margin: 8px 0 0; }
+
+/* Fixed desktop footprint; settings use their own normal-sized window. */
+:root[data-page="widget"] { background: transparent; }
+:root[data-page="widget"] body { min-width: 160px; background: transparent; }
+:root[data-page="widget"] #app { min-height: 128px; padding: 8px 10px 6px; border: 1px solid var(--glass-edge); border-radius: 8px; background: transparent; overflow: hidden; }
+:root[data-page="widget"] header { height: 16px; }
+:root[data-page="widget"] .brand { font-size: 10px; gap: 3px; }
+:root[data-page="widget"] .brand-mark { font-size: 15px; }
+:root[data-page="widget"] .english, :root[data-page="widget"] #hide { display: none; }
+:root[data-page="widget"] .icon-button { width: 19px; height: 19px; padding: 2px; }
+:root[data-page="widget"] .icon-button svg { width: 13px; height: 13px; }
+:root[data-page="widget"] .clock-pair { margin-top: 7px; }
+:root[data-page="widget"] .clock-pair > div + div { padding-left: 10px; }
+:root[data-page="widget"] .clock-label { font-size: 10px; }
+:root[data-page="widget"] time { font-size: 29px; line-height: 1.15; letter-spacing: -1px; }
+:root[data-page="widget"] .progress-section { margin-top: 4px; }
+:root[data-page="widget"] .progress-heading { font-size: 9px; margin-bottom: 4px; }
+:root[data-page="widget"] .progress-heading strong { font-size: 10px; }
+:root[data-page="widget"] .progress, :root[data-page="widget"] .progress i { height: 4px; }
+:root[data-page="widget"] .ticks { height: 13px; }
+:root[data-page="widget"] .ticks span { top: 2px; }
+:root[data-page="widget"] .remaining { font-size: 10px; line-height: 14px; min-height: 14px; }
+:root[data-page="widget"] footer { font-size: 8px; line-height: 11px; margin-top: 4px; gap: 2px; }
+:root[data-page="widget"][data-size="four"] #app { padding: 7px 8px; }
+:root[data-page="widget"][data-size="four"] .brand-mark { display: none; }
+:root[data-page="widget"][data-size="four"] time { font-size: 24px; }
+:root[data-page="widget"][data-size="four"] .clock-label span { font-size: 7px; margin-left: 1px; }
+:root[data-page="widget"][data-size="four"] .clock-pair { margin-top: 5px; }
+:root[data-page="widget"][data-size="four"] .clock-pair > div + div { padding-left: 7px; }
+:root[data-page="widget"][data-size="four"] footer { flex-direction: column; gap: 0; }
+:root[data-page="widget"][data-size="four"] #day-note { text-align: left; }
+:root[data-locked="true"] header { cursor: default; }
+:root[data-page="settings"] #app { min-height: 0; padding: 18px; }
+:root[data-page="settings"] header, :root[data-page="settings"] .clock-pair,
+:root[data-page="settings"] .progress-section, :root[data-page="settings"] .remaining,
+:root[data-page="settings"] footer { display: none; }
+:root[data-page="settings"] #settings-panel { margin: 0; padding: 0; border: 0; }
+:root[data-page="settings"] select { width: 176px; }
+.check-row { display: flex; align-items: center; gap: 7px; margin-top: 14px; }
+.check-row input { width: auto; margin: 0; accent-color: var(--accent); }
+:root[data-page="widget"] #rest-note { margin-top: 3px; font-size: 9px; line-height: 13px; }
+:root[data-page="widget"] #app:has(#rest-note:not([hidden])) { min-height: 158px; }
+.theme-row > span { font-size: 11px; }
+#wallpaper-viewport { position: fixed; inset: 0; overflow: hidden; border-radius: 8px; pointer-events: none; z-index: 0; }
+#wallpaper-image { position: absolute; filter: blur(14px); }
+:root[data-mode="floating"] #wallpaper-viewport { display: none !important; }
+:root[data-page="widget"] #app { position: relative; z-index: 1; }
+/* A light gray veil above either backdrop, below all clock text and controls. */
+:root[data-page="widget"] body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  border-radius: 8px;
+  background: rgb(216 216 216 / .18);
+  pointer-events: none;
+  z-index: 0;
+}

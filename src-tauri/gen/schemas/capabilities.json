@@ -1,0 +1,1 @@
+{"main-window":{"identifier":"main-window","description":"Local widget event subscription and title-bar dragging only.","local":true,"windows":["main","settings"],"permissions":["core:event:default","core:window:allow-start-dragging","core:window:allow-scale-factor"]}}

@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">醒时区应用图标方向预览</title>
+  <desc id="desc">左侧为日出与时间环，右侧为二十四小时进度环。</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#132238" flood-opacity=".14"/>
+    </filter>
+    <filter id="icon-shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#132238" flood-opacity=".22"/>
+    </filter>
+    <linearGradient id="board" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f5f8fb"/>
+      <stop offset="1" stop-color="#e9eef4"/>
+    </linearGradient>
+    <g id="sunrise-icon">
+      <rect width="260" height="260" rx="58" fill="#172235"/>
+      <path d="M55 166a94 94 0 0 1 150 0" fill="none" stroke="#6c8297" stroke-width="12" stroke-linecap="round" opacity=".72"/>
+      <path d="M73 166a76 76 0 0 1 114 0" fill="none" stroke="#8bd3c7" stroke-width="11" stroke-linecap="round"/>
+      <path d="M62 174h136" fill="none" stroke="#d9e6ee" stroke-width="10" stroke-linecap="round"/>
+      <circle cx="130" cy="174" r="35" fill="#ffc857"/>
+      <path d="M130 123v-13M91 137l-10-9M169 137l10-9" fill="none" stroke="#ffc857" stroke-width="8" stroke-linecap="round"/>
+      <circle cx="130" cy="174" r="6" fill="#fff1b8" opacity=".8"/>
+    </g>
+    <g id="progress-icon">
+      <rect width="260" height="260" rx="58" fill="#172235"/>
+      <circle cx="130" cy="130" r="91" fill="none" stroke="#60758b" stroke-width="15" opacity=".65"/>
+      <path d="M130 39a91 91 0 1 1-78.7 136.5" fill="none" stroke="#ffc857" stroke-width="15" stroke-linecap="round"/>
+      <path d="M130 39a91 91 0 0 1 78.7 45.5" fill="none" stroke="#8bd3c7" stroke-width="15" stroke-linecap="round"/>
+      <circle cx="51.3" cy="175.5" r="10" fill="#ffc857"/>
+      <circle cx="130" cy="130" r="38" fill="#24354c" stroke="#d9e6ee" stroke-width="4" opacity=".98"/>
+      <circle cx="130" cy="130" r="9" fill="#ffc857"/>
+      <path d="M130 130V106M130 130l18 10" fill="none" stroke="#d9e6ee" stroke-width="6" stroke-linecap="round"/>
+    </g>
+  </defs>
+
+  <rect width="1400" height="900" fill="url(#board)"/>
+  <text x="70" y="72" fill="#172235" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="32" font-weight="700">醒时区 · 应用图标方向预览</text>
+  <text x="70" y="108" fill="#5e7185" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="17">概念稿只用于比较方向，尚未替换应用图标</text>
+
+  <g filter="url(#shadow)">
+    <rect x="70" y="150" width="600" height="680" rx="28" fill="#fff"/>
+    <rect x="730" y="150" width="600" height="680" rx="28" fill="#fff"/>
+  </g>
+
+  <g font-family="Segoe UI, Microsoft YaHei, sans-serif">
+    <text x="112" y="205" fill="#172235" font-size="25" font-weight="700">方向一 · 日出＋时间环</text>
+    <text x="112" y="239" fill="#60758b" font-size="16">用日出表达清醒，用环形表达一天的时间范围</text>
+    <g transform="translate(240 285)" filter="url(#icon-shadow)"><use href="#sunrise-icon"/></g>
+    <text x="112" y="610" fill="#172235" font-size="18" font-weight="600">视觉印象</text>
+    <text x="112" y="642" fill="#60758b" font-size="16">温和、易理解，适合“醒时区”品牌</text>
+    <text x="112" y="670" fill="#60758b" font-size="16">太阳是主识别点，时间环作为辅助含义</text>
+    <text x="112" y="730" fill="#172235" font-size="15" font-weight="600">小尺寸检查</text>
+    <g transform="translate(255 690) scale(.22)"><use href="#sunrise-icon"/></g>
+    <g transform="translate(365 708) scale(.12)"><use href="#sunrise-icon"/></g>
+    <text x="310" y="805" fill="#91a0af" font-size="13">32 px</text>
+    <text x="408" y="805" fill="#91a0af" font-size="13">16 px</text>
+
+    <text x="772" y="205" fill="#172235" font-size="25" font-weight="700">方向二 · 24 小时进度环</text>
+    <text x="772" y="239" fill="#60758b" font-size="16">直接表达清醒日进度和个人时间映射</text>
+    <g transform="translate(900 285)" filter="url(#icon-shadow)"><use href="#progress-icon"/></g>
+    <text x="772" y="610" fill="#172235" font-size="18" font-weight="600">视觉印象</text>
+    <text x="772" y="642" fill="#60758b" font-size="16">信息感更强，与进度条和百分比更统一</text>
+    <text x="772" y="670" fill="#60758b" font-size="16">环段可以暗示清醒区间，但更像工具图标</text>
+    <text x="772" y="730" fill="#172235" font-size="15" font-weight="600">小尺寸检查</text>
+    <g transform="translate(915 690) scale(.22)"><use href="#progress-icon"/></g>
+    <g transform="translate(1025 708) scale(.12)"><use href="#progress-icon"/></g>
+    <text x="970" y="805" fill="#91a0af" font-size="13">32 px</text>
+    <text x="1068" y="805" fill="#91a0af" font-size="13">16 px</text>
+  </g>
+</svg>

@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">醒时区</string>
+    <string name="widget_wide">醒时区 · 4×2</string>
+    <string name="widget_compact">醒时区 · 2×1</string>
+    <string name="widget_description">北京时间、个人时钟与计划清醒日进度。点击设置作息和启用刷新。</string>
+    <string name="regular_label">常规时间</string>
+    <string name="personal_label">个人时钟</string>
+    <string name="placeholder_time">08:00</string>
+    <string name="placeholder_personal">00:00</string>
+    <string name="placeholder_percent">0.00%</string>
+    <string name="paused">刷新已暂停 · 点击设置</string>
+    <string name="paused_compact">已暂停</string>
+    <string name="progress_description" formatted="false">计划清醒日进度，刻度 25%、50%、75%</string>
+    <string name="opacity_label">背景不透明度 %1$d%%</string>
+</resources>

@@ -1,0 +1,26 @@
+<resources>
+    <item name="theme_editor" type="id" />
+    <item name="theme_preview" type="id" />
+    <item name="theme_presets" type="id" />
+    <item name="theme_background" type="id" />
+    <item name="theme_opacity" type="id" />
+    <item name="theme_ink_mode" type="id" />
+    <item name="theme_ink_color" type="id" />
+    <item name="theme_background_mode" type="id" />
+    <item name="design_entry" type="id" />
+    <item name="design_summary" type="id" />
+    <item name="design_back" type="id" />
+    <item name="design_size" type="id" />
+    <item name="design_backdrop" type="id" />
+    <item name="design_scroll" type="id" />
+    <item name="design_preview_hint" type="id" />
+    <item name="design_reset" type="id" />
+    <item name="design_save" type="id" />
+    <item name="design_time_scale" type="id" />
+    <item name="design_middle_scale" type="id" />
+    <item name="design_bottom_scale" type="id" />
+    <item name="design_time_opacity" type="id" />
+    <item name="design_middle_opacity" type="id" />
+    <item name="design_bottom_opacity" type="id" />
+    <item name="design_progress_thickness" type="id" />
+</resources>
