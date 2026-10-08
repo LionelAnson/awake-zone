@@ -1,6 +1,6 @@
 import './style.css';
 import { invoke } from '@tauri-apps/api/core';
-import { calculateDay, TIME_ZONE } from './time';
+import { calculateDay, scheduleDurationText, scheduleText, TIME_ZONE } from './time';
 import { DEFAULT_PREFERENCES, validatePreferences, type Preferences } from './preferences';
 import { startWallpaper } from './wallpaper';
 import { desktop, settingsPage, desktopSupported, dragWindow, hideWindow, loadPreferences, openSettings,
@@ -61,6 +61,18 @@ function updateTopOption() {
   $<HTMLInputElement>('always-on-top').disabled = embedded;
   if (embedded) $<HTMLInputElement>('always-on-top').checked = false;
 }
+function updateSchedulePreview() {
+  const preview = $('schedule-preview');
+  if (!settingsPage) return;
+  const schedule = { wake: $<HTMLInputElement>('wake').value, sleep: $<HTMLInputElement>('sleep').value };
+  try {
+    preview.textContent = `当前作息：${scheduleText(schedule)} · 预计清醒 ${scheduleDurationText(schedule)}`;
+    preview.dataset.invalid = 'false';
+  } catch {
+    preview.textContent = '请输入不同的有效起床和入睡时间。';
+    preview.dataset.invalid = 'true';
+  }
+}
 function populateSettings() {
   $<HTMLInputElement>('wake').value = preferences.wake;
   $<HTMLInputElement>('sleep').value = preferences.sleep;
@@ -70,6 +82,7 @@ function populateSettings() {
   $<HTMLInputElement>('desktop-mode').checked = preferences.desktopMode;
   $<HTMLInputElement>('always-on-top').checked = preferences.alwaysOnTop;
   updateTopOption();
+  updateSchedulePreview();
 }
 async function save(next: Preferences) {
   if (saving) return false;
@@ -98,6 +111,8 @@ $('drag-handle').addEventListener('mousedown', event => {
   if (!preferences.positionLocked && event.button === 0 && !(event.target as HTMLElement).closest('button')) void dragWindow().catch(reportError);
 });
 $('desktop-mode').addEventListener('change', updateTopOption);
+$('wake').addEventListener('input', updateSchedulePreview);
+$('sleep').addEventListener('input', updateSchedulePreview);
 $('settings-form').addEventListener('submit', event => {
   event.preventDefault();
   void (async () => {

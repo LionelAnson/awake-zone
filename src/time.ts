@@ -69,3 +69,11 @@ export function remainingText(ms: number): string {
 export function scheduleText(schedule: Schedule): string {
   return `${schedule.wake} — ${parseTime(schedule.sleep) < parseTime(schedule.wake) ? '次日 ' : ''}${schedule.sleep}`;
 }
+
+export function scheduleDurationText(schedule: Schedule): string {
+  validateSchedule(schedule);
+  const wake = parseTime(schedule.wake);
+  const sleep = parseTime(schedule.sleep);
+  const minutes = (sleep - wake + 1440) % 1440;
+  return `${Math.floor(minutes / 60)} 小时 ${minutes % 60} 分钟`;
+}

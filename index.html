@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="light" />
-    <title>个人时钟 / Personal Day</title>
+    <title>醒时区 / Awake Zone</title>
     <link rel="icon" type="image/svg+xml" href="/assets/icon.svg" />
   </head>
   <body>
     <div id="wallpaper-viewport" aria-hidden="true" hidden><div id="wallpaper-image"></div></div>
     <main id="app">
       <header id="drag-handle">
-        <div class="brand"><span class="brand-mark" aria-hidden="true">◷</span>个人时钟 <span class="english">Personal Day</span></div>
+        <div class="brand"><span class="brand-mark" aria-hidden="true">◷</span>醒时区 <span class="english">Awake Zone</span></div>
         <div class="tools">
           <button id="return-desktop" class="icon-button" title="回到桌面并固定位置" aria-label="回到桌面并固定位置" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v12H4zM8 21h8m-4-5v5M8 10h8m-5-3-3 3 3 3"/></svg></button>
           <button id="lock" class="icon-button" title="解锁位置" aria-label="锁定位置" aria-pressed="true"><svg viewBox="0 0 24 24"><path d="M7 10V7a5 5 0 0 1 10 0v3M5 10h14v11H5V10Zm7 4v3"/></svg></button>
@@ -22,7 +22,7 @@
 
       <section class="clock-pair" aria-label="时间">
         <div><div class="clock-label">常规时间 <span>北京</span></div><time id="regular-time">--:--</time></div>
-        <div class="personal"><div class="clock-label">个人时钟</div><time id="personal-time">--:--</time></div>
+        <div class="personal"><div class="clock-label">醒时区时间</div><time id="personal-time">--:--</time></div>
       </section>
 
       <section class="progress-section" aria-label="计划清醒日进度">
@@ -35,9 +35,10 @@
       <div id="rest-note" class="remaining" hidden></div>
 
       <section id="settings-panel" hidden aria-label="设置">
-        <div class="settings-title"><h1>作息与外观</h1><span>按北京时间</span></div>
+        <div class="settings-title"><h1>醒时区设置</h1><span>按北京时间</span></div>
         <form id="settings-form">
-          <div class="time-inputs"><label>计划起床<input id="wake" type="time" required step="60" /></label><label>计划入睡<input id="sleep" type="time" required step="60" /></label></div>
+          <div class="time-inputs"><label>预期起床时间<input id="wake" type="time" required step="60" /></label><label>预期入睡时间<input id="sleep" type="time" required step="60" /></label></div>
+          <p id="schedule-preview" class="help schedule-preview" aria-live="polite"></p>
           <div class="theme-row"><span>外观</span><span>原色磨砂 · 字色随背景</span></div>
           <label class="theme-row">组件大小<select id="widget-size"><option value="four">约 4 个图标位 · 2×2</option><option value="six">约 6 个图标位 · 3×2</option></select></label>
           <label class="check-row"><input id="desktop-mode" type="checkbox" />嵌入桌面层（Windows）</label>
@@ -46,7 +47,7 @@
           <label class="check-row"><input id="start-at-login" type="checkbox" />登录系统后自动启动</label>
           <p class="help">锁定时记住与屏幕右边、底边的距离。解锁后拖动顶栏，可调整固定位置。</p>
             <p class="help">Win + Alt + X：置顶并解锁拖动；再按回到保存的桌面位置并锁定。浮窗拖动不改变桌面位置。无需按 Fn 或 Shift。</p>
-          <p class="help">一次计划清醒时段，对应个人时间 00:00—24:00。此工具按作息换算，不检测睡眠。</p>
+          <p class="help">程序会按这段预期清醒时长，把个人时间映射为 00:00—24:00；它不会检测实际睡眠。</p>
           <div class="form-actions"><button id="cancel" type="button">取消</button><button type="submit" class="primary">保存设置</button></div>
         </form>
       </section>

@@ -508,6 +508,8 @@ pub fn run() {
     tauri::Builder::default()
         .plugin(
             tauri_plugin_autostart::Builder::new()
+                // Keep the legacy autostart value name so existing users do not
+                // get a second startup entry after the visible product rename.
                 .app_name("Personal Day")
                 .arg("--autostart")
                 .build(),
@@ -682,7 +684,7 @@ pub fn run() {
             let icon = app.default_window_icon().ok_or("app icon missing")?.clone();
             TrayIconBuilder::with_id("personal-day")
                 .icon(icon)
-                .tooltip("个人时钟 / Personal Day")
+                .tooltip("醒时区 / Awake Zone")
                 .menu(&menu)
                 .show_menu_on_left_click(true)
                 .on_menu_event(|app, event| {
@@ -737,7 +739,7 @@ pub fn run() {
             }
         })
         .build(context)
-        .expect("无法启动 Personal Day")
+        .expect("无法启动醒时区")
         .run(|app, event| {
             if matches!(event, tauri::RunEvent::Exit) {
                 #[cfg(windows)]

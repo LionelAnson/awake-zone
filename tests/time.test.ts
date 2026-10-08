@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { calculateDay, DEFAULT_SCHEDULE, remainingText } from '../src/time';
+import { calculateDay, DEFAULT_SCHEDULE, remainingText, scheduleDurationText, scheduleText } from '../src/time';
 
 describe('local planned waking day', () => {
   it.each([
@@ -30,6 +30,14 @@ describe('local planned waking day', () => {
     const s = calculateDay({ wake: '06:00', sleep: '22:00' }, new Date('2026-09-28T14:00:00'));
     expect(s.percent).toBe(50);
     expect(s.end.getDate()).toBe(28);
+  });
+  it.each([
+    [{ wake: '08:00', sleep: '00:00' }, '16 小时 0 分钟', '08:00 — 次日 00:00'],
+    [{ wake: '10:00', sleep: '02:00' }, '16 小时 0 分钟', '10:00 — 次日 02:00'],
+    [{ wake: '06:00', sleep: '22:30' }, '16 小时 30 分钟', '06:00 — 22:30'],
+  ])('describes a custom expected schedule %j', (schedule, duration, text) => {
+    expect(scheduleDurationText(schedule)).toBe(duration);
+    expect(scheduleText(schedule)).toBe(text);
   });
   it.each(['2027-01-01T01:00:00', '2028-03-01T01:00:00'])('crosses calendar boundaries: %s', date => {
     const s = calculateDay({ wake: '10:00', sleep: '02:00' }, new Date(date));

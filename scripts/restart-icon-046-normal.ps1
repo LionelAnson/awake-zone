@@ -15,7 +15,7 @@ def child(h,l):
  p=w.DWORD();u.GetWindowThreadProcessId(h,c.byref(p))
  if p.value==pid:
   t=c.create_unicode_buffer(256);u.GetWindowTextW(h,t,256)
-  if 'Personal Day' in t.value:u.PostMessageW(h,0x10,0,0)
+  if 'Awake Zone' in t.value or 'Personal Day' in t.value:u.PostMessageW(h,0x10,0,0)
  return True
 @CB
 def top(h,l):

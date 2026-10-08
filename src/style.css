@@ -59,6 +59,8 @@ input { display: block; width: 100%; margin-top: 6px; font-variant-numeric: tabu
 .theme-row { display: flex; align-items: center; justify-content: space-between; margin-top: 12px; }
 select { width: 132px; font-size: 11px; }
 .help { font-size: 10px; color: var(--muted); line-height: 1.7; margin: 12px 0; }
+.schedule-preview { margin-top: 9px; margin-bottom: 8px; font-variant-numeric: tabular-nums; }
+.schedule-preview[data-invalid="true"] { color: #b74532; }
 .form-actions { display: flex; justify-content: flex-end; gap: 8px; font-size: 11px; }
 .primary { background: var(--accent); color: var(--input); border-color: var(--accent); }
 #error { font-size: 11px; line-height: 1.6; color: #b74532; padding: 7px; background: var(--input); border: 1px solid currentColor; border-radius: 5px; margin: 8px 0 0; }
